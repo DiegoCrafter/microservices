@@ -1,8 +1,8 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, render_template, redirect
 from sqlalchemy import exc
 from project.api.models import User, db
 
-users_blueprint = Blueprint('users', __name__)
+users_blueprint = Blueprint('users', __name__, template_folder='./templates')
 
 @users_blueprint.route('/users/ping', methods=['GET'])
 def ping_pong():
@@ -70,3 +70,37 @@ def get_all_users():
         }
     }
     return jsonify(response_object), 200
+
+@users_blueprint.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        db.session.add(User(username=username, email=email))
+        db.session.commit()
+    users = User.query.all()
+    return render_template('index.html', users=users)
+
+@users_blueprint.route('/delete/<user_id>', methods=['POST', 'GET'])
+def delete_user(user_id):
+    user = User.query.filter_by(id=int(user_id)).first()
+    db.session.delete(user)
+    db.session.commit()
+    return redirect("/")
+
+@users_blueprint.route('/show/<user_id>', methods=['GET'])
+def show_user(user_id):
+    user = User.query.filter_by(id=int(user_id)).first()
+    return render_template('form.html', user=user)
+
+@users_blueprint.route('/update/<user_id>', methods=['POST','GET'])
+def update_user(user_id):
+    user = User.query.filter_by(id=int(user_id)).first()
+    username = request.form['username']
+    email = request.form['email']
+
+    user.username = username
+    user.email = email
+
+    db.session.commit()
+    return redirect("/")
