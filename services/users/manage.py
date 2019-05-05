@@ -2,19 +2,20 @@
 
 import unittest
 import coverage
-from flask.cli import FlaskGroup
-from project import create_app, db
-from project.api.models import User
 
 COV = coverage.coverage(
     branch=True,
     include='project/*',
     omit=[
         'project/tests/*',
-        'project/config.py'
+        'project/config.py',
     ]
 )
 COV.start()
+
+from flask.cli import FlaskGroup
+from project import create_app, db
+from project.api.models import User
 
 app = create_app()
 cli = FlaskGroup(create_app=create_app)
@@ -40,10 +41,7 @@ def seed_db():
     db.session.add(User(username='daniel', email='daniel@upeu.edu.pe'))
     db.session.commit()
 
-if __name__ == '__main__':
-    cli()
-
-@cli.command('cov')
+@cli.command()
 def cov():
     """Unitary test with coverage"""
     tests = unittest.TestLoader().discover('project/tests')
@@ -57,3 +55,7 @@ def cov():
         COV.erase()
         return 0
     sys.exit(result)
+
+if __name__ == '__main__':
+    cli()
+
