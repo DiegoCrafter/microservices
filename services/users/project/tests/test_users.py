@@ -1,14 +1,10 @@
 # services/users/project/tests/test_users.py
-
-
 import json
 import unittest
-
-from flask import Blueprint, jsonify, request
 from project.api.models import User
 from project import db
 from project.tests.base import BaseTestCase
-from sqlalchemy import exc
+
 
 def add_user(username, email):
     user = User(username=username, email=email)
@@ -16,9 +12,9 @@ def add_user(username, email):
     db.session.commit()
     return user
 
+
 class TestUserService(BaseTestCase):
     """Tests para el servicio Users."""
-
     def test_users(self):
         """Asegurando que la ruta /ping  se comporta correctamente."""
         response = self.client.get('/users/ping')
@@ -32,15 +28,16 @@ class TestUserService(BaseTestCase):
         with self.client:
             response = self.client.post(
                 '/users',
-                data = json.dumps({
-                    'username' : 'diego',
-                    'email' : 'diegohuarcaya@upeu.edu.pe'
+                data=json.dumps({
+                    'username': 'diego',
+                    'email': 'diego@upeu.edu.pe'
                 }),
-                content_type = 'application/json',
+                content_type='application/json',
             )
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 201)
-            self.assertIn('diegohuarcaya@upeu.edu.pe was added', data['message'])
+            self.assertIn(
+                'diego@upeu.edu.pe was added', data['message'])
             self.assertIn('success', data['status'])
 
     def test_add_user_invalid_json(self):
@@ -59,7 +56,7 @@ class TestUserService(BaseTestCase):
         with self.client:
             response = self.client.post(
                 '/users',
-                data = json.dumps({'email' : 'diego.huarcaya@upeu.edu.pe'}),
+                data=json.dumps({'email': 'diego.huarcaya@upeu.edu.pe'}),
                 content_type='application/json',
             )
             data = json.loads(response.data.decode())
@@ -71,7 +68,7 @@ class TestUserService(BaseTestCase):
         with self.client:
             self.client.post(
                 '/users',
-                data = json.dumps({
+                data=json.dumps({
                     'username': 'diego',
                     'email': 'diegocrafter@upeu.edu.pe'
                 }),
@@ -79,7 +76,7 @@ class TestUserService(BaseTestCase):
             )
             response = self.client.post(
                 '/users',
-                data = json.dumps({
+                data=json.dumps({
                     'username': 'diego',
                     'email': 'diegocrafter@upeu.edu.pe'
                 }),
@@ -91,7 +88,7 @@ class TestUserService(BaseTestCase):
             self.assertIn('fail', data['status'])
 
     def test_single_user(self):
-        user = add_user('diego','diegohuarcaya@upeu.edu.pe')
+        user = add_user('diego', 'diegohuarcaya@upeu.edu.pe')
         with self.client:
             response = self.client.get(f'/users/{user.id}')
             data = json.loads(response.data.decode())
@@ -118,16 +115,18 @@ class TestUserService(BaseTestCase):
 
     def test_all_users(self):
         add_user('luis', 'luis@upeu.edu.pe')
-        add_user('daniel','daniel@gmail.com')
+        add_user('daniel', 'daniel@gmail.com')
         with self.client:
             response = self.client.get('/users')
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 200)
-            self.assertEqual(len(data['data']['users']),2)
+            self.assertEqual(len(data['data']['users']), 2)
             self.assertIn('luis', data['data']['users'][0]['username'])
-            self.assertIn('luis@upeu.edu.pe', data['data']['users'][0]['email'])
+            self.assertIn(
+                'luis@upeu.edu.pe', data['data']['users'][0]['email'])
             self.assertIn('daniel', data['data']['users'][1]['username'])
-            self.assertIn('daniel@gmail.com', data['data']['users'][1]['email'])
+            self.assertIn(
+                'daniel@gmail.com', data['data']['users'][1]['email'])
 
     def test_main_no_users(self):
         """Asegurando que la ruta principal funcione correctamente"""
@@ -138,8 +137,8 @@ class TestUserService(BaseTestCase):
 
     def test_main_with_users(self):
         """Asegurando que la ruta principal funcione cuando un usuario BD"""
-        add_user('mali','mali@upeu.edu.pe')
-        add_user('david','david@gmail.com')
+        add_user('mali', 'mali@upeu.edu.pe')
+        add_user('david', 'david@gmail.com')
         with self.client:
             response = self.client.get('/')
             self.assertEqual(response.status_code, 200)
@@ -159,8 +158,7 @@ class TestUserService(BaseTestCase):
             self.assertEqual(response.status_code, 200)
             self.assertIn(b'Todos los usuarios', response.data)
             self.assertNotIn(b'<p>No hay usuarios!</p>', response.data)
-            self.assertIn(b'mali', response.data)           
-
+            self.assertIn(b'mali', response.data)
 
 
 if __name__ == '__main__':
