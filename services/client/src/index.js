@@ -9,11 +9,13 @@ import AddUser from './component/AddUser';
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
         users: [],
-        username: 'justatest',
+        username: '',
         email: '',
     };
+
     this.addUser = this.addUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -45,7 +47,11 @@ class App extends Component {
 
   getUsers(){
     axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`)
-    .then((res)=>{console.log(res.data.data.users);})
+    .then((res)=> {
+      this.setState({
+        users: res.data.data.users
+      })
+    })
     .catch((err)=>{console.log(err)})
   }
 

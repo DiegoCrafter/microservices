@@ -6,16 +6,16 @@ const UsersList = (props) => {
   	{
     	props.users.map((user) => {
       	return (
-        	<h4
+        	<h2
           	key={user.id}
           	className="box title is-4"
-        	>{ user.username }
-        	</h4>
+        	> { user.username }
+        	</h2>
       	)
     	})
   	}
 	</div>
   )
-};
+}
  
 export default UsersList;
