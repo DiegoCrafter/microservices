@@ -1,0 +1,74 @@
+<div class="hero-body">
+    <div class="container has-text-centered">
+        <div class="columns is-vcentered">
+            <div class="column is-5">
+                <figure class="image is-4by3">
+                    <img src="https://picsum.photos/800/600/?random" alt="Description">
+                </figure>
+            </div>
+            <div class="column is-6 is-offset-1">
+                <h1 class="title is-2">
+                    Superhero Scaffolding
+                </h1>
+                <h2 class="subtitle is-4">
+                    Let this cover page describe a product or service.
+                </h2>
+                <br>
+                <p class="has-text-centered">
+                    <a class="button is-medium is-info is-outlined">
+                        Learn more
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="column is-one-third">
+      <br>
+      <h1 class="title">Todos los usuarios</h1>
+      <hr><br>
+      <form action="/" method="POST">
+        <div class="field">
+          <input
+            name="username" class="input"
+            type="text" placeholder="Ingrese un nombre de usuario" required>
+        </div>
+        <div class="field">
+          <input
+            name="email" class="input"
+            type="email" placeholder="Ingrese una direcci√≥n email" required>
+        </div>
+        <input
+          type="submit" class="button is-link is-fullwidth"
+          value="Submit">
+      </form>
+      </div>
+      <div class="tableclass" style="display: inline-block;">
+      <table class="table" style="">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th><abbr title="Played">Correo</abbr></th>
+              <th><abbr title="Played">Acciones</abbr></th>
+            </tr>
+          </thead>
+          {% if users %}
+          <tbody>
+            {% for user in users %}
+            <tr>
+              <td>{{user.username}}</td>
+              <td>{{user.email}}</td>
+              <td><a class="button is-small is-secondary" href="/delete/{{user.id}}" >Eliminar</a></td>
+              <td><a class="button is-small is-primary" href="/show/{{user.id}}">Actualizar</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          {% else %}
+            <p>No hay usuarios!</p>
+          {% endif %}
+        </table>
+      </div>
+    </div>

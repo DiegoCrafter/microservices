@@ -1,0 +1,77 @@
+faa74167f4d7d2051b160d00e6bd0232
+"use strict";
+
+var _interopRequireDefault = require("/home/diego/microservices/services/client/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _jsxFileName = "/home/diego/microservices/services/client/src/component/AddUser.jsx";
+
+const AddUser = props => {
+  return _react.default.createElement("form", {
+    onSubmit: event => props.addUser(event),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    },
+    __self: void 0
+  }, _react.default.createElement("div", {
+    className: "field",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: void 0
+  }, _react.default.createElement("input", {
+    name: "username",
+    className: "input is-large",
+    type: "text",
+    placeholder: "Insert a username",
+    required: true,
+    value: props.username,
+    onChange: props.handleChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: void 0
+  })), _react.default.createElement("div", {
+    className: "field",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: void 0
+  }, _react.default.createElement("input", {
+    name: "email",
+    className: "input is-large",
+    type: "email",
+    placeholder: "Enter a email",
+    required: true,
+    value: props.email,
+    onChange: props.handleChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17
+    },
+    __self: void 0
+  })), _react.default.createElement("input", {
+    type: "submit",
+    className: "button is-link is-fullwidth",
+    value: "Enviar",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: void 0
+  }));
+};
+
+var _default = AddUser;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFkZFVzZXIuanN4Il0sIm5hbWVzIjpbIkFkZFVzZXIiLCJwcm9wcyIsImV2ZW50IiwiYWRkVXNlciIsInVzZXJuYW1lIiwiaGFuZGxlQ2hhbmdlIiwiZW1haWwiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFBOzs7O0FBRUEsTUFBTUEsT0FBTyxHQUFJQyxLQUFELElBQVc7QUFDdkIsU0FDSTtBQUFNLElBQUEsUUFBUSxFQUFHQyxLQUFELElBQVdELEtBQUssQ0FBQ0UsT0FBTixDQUFjRCxLQUFkLENBQTNCO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLEtBQ0k7QUFBSyxJQUFBLFNBQVMsRUFBQyxPQUFmO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLEtBQ0k7QUFBTyxJQUFBLElBQUksRUFBQyxVQUFaO0FBQ08sSUFBQSxTQUFTLEVBQUMsZ0JBRGpCO0FBRU8sSUFBQSxJQUFJLEVBQUMsTUFGWjtBQUdPLElBQUEsV0FBVyxFQUFDLG1CQUhuQjtBQUlPLElBQUEsUUFBUSxNQUpmO0FBS08sSUFBQSxLQUFLLEVBQUVELEtBQUssQ0FBQ0csUUFMcEI7QUFNTyxJQUFBLFFBQVEsRUFBRUgsS0FBSyxDQUFDSSxZQU52QjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxJQURKLENBREosRUFXSTtBQUFLLElBQUEsU0FBUyxFQUFDLE9BQWY7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsS0FDSTtBQUFPLElBQUEsSUFBSSxFQUFDLE9BQVo7QUFDTyxJQUFBLFNBQVMsRUFBQyxnQkFEakI7QUFFTyxJQUFBLElBQUksRUFBQyxPQUZaO0FBR08sSUFBQSxXQUFXLEVBQUMsZUFIbkI7QUFJTyxJQUFBLFFBQVEsTUFKZjtBQUtPLElBQUEsS0FBSyxFQUFFSixLQUFLLENBQUNLLEtBTHBCO0FBTU8sSUFBQSxRQUFRLEVBQUVMLEtBQUssQ0FBQ0ksWUFOdkI7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsSUFESixDQVhKLEVBcUJJO0FBQ0ksSUFBQSxJQUFJLEVBQUMsUUFEVDtBQUVJLElBQUEsU0FBUyxFQUFDLDZCQUZkO0FBR0ksSUFBQSxLQUFLLEVBQUMsUUFIVjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxJQXJCSixDQURKO0FBNkJILENBOUJEOztlQWdDZUwsTyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmNvbnN0IEFkZFVzZXIgPSAocHJvcHMpID0+IHtcbiAgICByZXR1cm4oXG4gICAgICAgIDxmb3JtIG9uU3VibWl0PXsoZXZlbnQpID0+IHByb3BzLmFkZFVzZXIoZXZlbnQpfT5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmllbGRcIj5cbiAgICAgICAgICAgICAgICA8aW5wdXQgbmFtZT1cInVzZXJuYW1lXCJcbiAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiaW5wdXQgaXMtbGFyZ2VcIlxuICAgICAgICAgICAgICAgICAgICAgICB0eXBlPVwidGV4dFwiXG4gICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiSW5zZXJ0IGEgdXNlcm5hbWVcIlxuICAgICAgICAgICAgICAgICAgICAgICByZXF1aXJlZFxuICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17cHJvcHMudXNlcm5hbWV9XG4gICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtwcm9wcy5oYW5kbGVDaGFuZ2V9XG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmaWVsZFwiPlxuICAgICAgICAgICAgICAgIDxpbnB1dCBuYW1lPVwiZW1haWxcIlxuICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJpbnB1dCBpcy1sYXJnZVwiXG4gICAgICAgICAgICAgICAgICAgICAgIHR5cGU9XCJlbWFpbFwiXG4gICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPVwiRW50ZXIgYSBlbWFpbFwiXG4gICAgICAgICAgICAgICAgICAgICAgIHJlcXVpcmVkXG4gICAgICAgICAgICAgICAgICAgICAgIHZhbHVlPXtwcm9wcy5lbWFpbH1cbiAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9e3Byb3BzLmhhbmRsZUNoYW5nZX1cbiAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8aW5wdXQgXG4gICAgICAgICAgICAgICAgdHlwZT1cInN1Ym1pdFwiXG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiYnV0dG9uIGlzLWxpbmsgaXMtZnVsbHdpZHRoXCJcbiAgICAgICAgICAgICAgICB2YWx1ZT1cIkVudmlhclwiXG4gICAgICAgICAgICAvPlxuICAgICAgICA8L2Zvcm0+XG4gICAgKVxufTtcblxuZXhwb3J0IGRlZmF1bHQgQWRkVXNlcjsiXX0=

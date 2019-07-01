@@ -1,0 +1,51 @@
+a1322d68153499896a4b97323ab4bf49
+"use strict";
+
+var _interopRequireDefault = require("/home/diego/microservices/services/client/node_modules/@babel/runtime/helpers/interopRequireDefault");
+
+var _react = _interopRequireDefault(require("react"));
+
+var _enzyme = require("enzyme");
+
+var _reactTestRenderer = _interopRequireDefault(require("react-test-renderer"));
+
+var _UsersList = _interopRequireDefault(require("../UsersList"));
+
+var _jsxFileName = "/home/diego/microservices/services/client/src/component/__tests__/UsersList.test.jsx";
+const users = [{
+  'active': true,
+  'email': 'luis@upeu.edu.pe',
+  'id': 1,
+  'username': 'luis'
+}, {
+  'active': true,
+  'email': 'daniel@upeu.edu.pe',
+  'id': 2,
+  'username': 'daniel'
+}];
+test('UsersList renders properly', () => {
+  const wrapper = (0, _enzyme.shallow)(_react.default.createElement(_UsersList.default, {
+    users: users,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: void 0
+  }));
+  const element = wrapper.find('h4');
+  expect(element.length).toBe(2);
+  expect(element.get(0).props.children).toBe('luis');
+});
+test('UsersList renders a snapshot properly', () => {
+  const tree = _reactTestRenderer.default.create(_react.default.createElement(_UsersList.default, {
+    users: users,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: void 0
+  })).toJSON();
+
+  expect(tree).toMatchSnapshot();
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlVzZXJzTGlzdC50ZXN0LmpzeCJdLCJuYW1lcyI6WyJ1c2VycyIsInRlc3QiLCJ3cmFwcGVyIiwiZWxlbWVudCIsImZpbmQiLCJleHBlY3QiLCJsZW5ndGgiLCJ0b0JlIiwiZ2V0IiwicHJvcHMiLCJjaGlsZHJlbiIsInRyZWUiLCJyZW5kZXJlciIsImNyZWF0ZSIsInRvSlNPTiIsInRvTWF0Y2hTbmFwc2hvdCJdLCJtYXBwaW5ncyI6Ijs7OztBQUFBOztBQUNBOztBQUNBOztBQUVBOzs7QUFFQSxNQUFNQSxLQUFLLEdBQUcsQ0FDWjtBQUNELFlBQVUsSUFEVDtBQUVELFdBQVMsa0JBRlI7QUFHRCxRQUFNLENBSEw7QUFJRCxjQUFZO0FBSlgsQ0FEWSxFQU9aO0FBQ0QsWUFBVSxJQURUO0FBRUQsV0FBUyxvQkFGUjtBQUdELFFBQU0sQ0FITDtBQUlELGNBQVk7QUFKWCxDQVBZLENBQWQ7QUFlQUMsSUFBSSxDQUFDLDRCQUFELEVBQStCLE1BQU07QUFDdkMsUUFBTUMsT0FBTyxHQUFHLHFCQUFRLDZCQUFDLGtCQUFEO0FBQVcsSUFBQSxLQUFLLEVBQUVGLEtBQWxCO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLElBQVIsQ0FBaEI7QUFDQSxRQUFNRyxPQUFPLEdBQUdELE9BQU8sQ0FBQ0UsSUFBUixDQUFhLElBQWIsQ0FBaEI7QUFDQUMsRUFBQUEsTUFBTSxDQUFDRixPQUFPLENBQUNHLE1BQVQsQ0FBTixDQUF1QkMsSUFBdkIsQ0FBNEIsQ0FBNUI7QUFDQUYsRUFBQUEsTUFBTSxDQUFDRixPQUFPLENBQUNLLEdBQVIsQ0FBWSxDQUFaLEVBQWVDLEtBQWYsQ0FBcUJDLFFBQXRCLENBQU4sQ0FBc0NILElBQXRDLENBQTJDLE1BQTNDO0FBQ0QsQ0FMRyxDQUFKO0FBT0FOLElBQUksQ0FBQyx1Q0FBRCxFQUEwQyxNQUFNO0FBQ2hELFFBQU1VLElBQUksR0FBR0MsMkJBQVNDLE1BQVQsQ0FBZ0IsNkJBQUMsa0JBQUQ7QUFBVyxJQUFBLEtBQUssRUFBRWIsS0FBbEI7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsSUFBaEIsRUFBNENjLE1BQTVDLEVBQWI7O0FBQ0FULEVBQUFBLE1BQU0sQ0FBQ00sSUFBRCxDQUFOLENBQWFJLGVBQWI7QUFDRCxDQUhDLENBQUoiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgc2hhbGxvdyB9IGZyb20gJ2VuenltZSc7XG5pbXBvcnQgcmVuZGVyZXIgZnJvbSAncmVhY3QtdGVzdC1yZW5kZXJlcic7XG4gXG5pbXBvcnQgVXNlcnNMaXN0IGZyb20gJy4uL1VzZXJzTGlzdCc7XG4gXG5jb25zdCB1c2VycyA9IFtcbiAge1xuXHQnYWN0aXZlJzogdHJ1ZSxcblx0J2VtYWlsJzogJ2x1aXNAdXBldS5lZHUucGUnLFxuXHQnaWQnOiAxLFxuXHQndXNlcm5hbWUnOiAnbHVpcydcbiAgfSxcbiAge1xuXHQnYWN0aXZlJzogdHJ1ZSxcblx0J2VtYWlsJzogJ2RhbmllbEB1cGV1LmVkdS5wZScsXG5cdCdpZCc6IDIsXG5cdCd1c2VybmFtZSc6ICdkYW5pZWwnXG4gIH1cbl07XG4gXG50ZXN0KCdVc2Vyc0xpc3QgcmVuZGVycyBwcm9wZXJseScsICgpID0+IHtcbiAgY29uc3Qgd3JhcHBlciA9IHNoYWxsb3coPFVzZXJzTGlzdCB1c2Vycz17dXNlcnN9Lz4pO1xuICBjb25zdCBlbGVtZW50ID0gd3JhcHBlci5maW5kKCdoNCcpO1xuICBleHBlY3QoZWxlbWVudC5sZW5ndGgpLnRvQmUoMik7XG4gIGV4cGVjdChlbGVtZW50LmdldCgwKS5wcm9wcy5jaGlsZHJlbikudG9CZSgnbHVpcycpO1xufSk7XG5cbnRlc3QoJ1VzZXJzTGlzdCByZW5kZXJzIGEgc25hcHNob3QgcHJvcGVybHknLCAoKSA9PiB7XG4gICAgY29uc3QgdHJlZSA9IHJlbmRlcmVyLmNyZWF0ZSg8VXNlcnNMaXN0IHVzZXJzPXt1c2Vyc30vPikudG9KU09OKCk7XG4gICAgZXhwZWN0KHRyZWUpLnRvTWF0Y2hTbmFwc2hvdCgpO1xuICB9KTtcbiAgXG4iXX0=
