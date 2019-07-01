@@ -2,6 +2,27 @@ version: '3.7'
 
 services:
 
+<<<<<<< HEAD
+  rateapp:
+    build:
+      context: ./services/rateapp
+      dockerfile: Dockerfile
+    volumes:
+      - './services/rateapp:/usr/src/app'
+    ports:
+      - 5002:5000
+    environment:
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - DATABASE_URL=postgres://postgres:postgres@rateapp-db:5432/rateapp_dev  # nuevo
+      - DATABASE_TEST_URL=postgres://postgres:postgres@rateapp-db:5432/rateapp_test  # nuevo
+    depends_on:
+      - rateapp-db
+
+  rateapp-db:
+    build:
+      context: ./services/rateapp/project/db
+=======
   users:
     build:
       context: ./services/users
@@ -21,6 +42,7 @@ services:
   users-db:  # nuevo
     build:
       context: ./services/users/project/db
+>>>>>>> 56ca3da6228634e582d203ac043c663a48e90ac1
       dockerfile: Dockerfile
     ports:
       - 5435:5432
@@ -36,6 +58,9 @@ services:
     ports:
       - 80:80
     depends_on:
+<<<<<<< HEAD
+      - rateapp
+=======
       - users
       - client
 
@@ -53,3 +78,4 @@ services:
       - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
     depends_on:
       - users
+>>>>>>> 56ca3da6228634e582d203ac043c663a48e90ac1

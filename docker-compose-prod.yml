@@ -2,15 +2,31 @@ version: '3.7'
 
 services:
 
+<<<<<<< HEAD
+  rateapp:
+    build:
+      context: ./services/rateapp
+=======
   users:
     build:
       context: ./services/users
+>>>>>>> 56ca3da6228634e582d203ac043c663a48e90ac1
       dockerfile: Dockerfile-prod
     expose:
       - 5000
     environment:
       - FLASK_ENV=production
       - APP_SETTINGS=project.config.ProductionConfig
+<<<<<<< HEAD
+      - DATABASE_URL=postgres://postgres:postgres@rateapp-db:5432/rateapp_prod  # nuevo
+      - DATABASE_TEST_URL=postgres://postgres:postgres@rateapp-db:5432/rateapp_test  # nuevo
+    depends_on:
+      - rateapp-db
+
+  rateapp-db:
+    build:
+      context: ./services/rateapp/project/db
+=======
       - DATABASE_URL=postgres://postgres:postgres@users-db:5432/users_dev  # nuevo
       - DATABASE_TEST_URL=postgres://postgres:postgres@users-db:5432/users_test  # nuevo
     depends_on: # nuevo
@@ -19,12 +35,16 @@ services:
   users-db: # nuevo
     build:
       context: ./services/users/project/db
+>>>>>>> 56ca3da6228634e582d203ac043c663a48e90ac1
       dockerfile: Dockerfile
     ports:
       - 5435:5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+<<<<<<< HEAD
+      
+=======
 
   client:
     container_name: client
@@ -39,6 +59,7 @@ services:
     depends_on:
         - users
 
+>>>>>>> 56ca3da6228634e582d203ac043c663a48e90ac1
   nginx:
     container_name: nginx
     build:
@@ -48,5 +69,9 @@ services:
     ports:
       - 80:80
     depends_on:
+<<<<<<< HEAD
+      - rateapp
+=======
       - users
       - client
+>>>>>>> 56ca3da6228634e582d203ac043c663a48e90ac1

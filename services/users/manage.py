@@ -37,8 +37,13 @@ def recreate_db():
 
 @cli.command('seed_db')
 def seed_db():
+<<<<<<< HEAD
+    db.session.add(User(username='luis', email='luis@upeu.edu.pe', password='greathethaneight'))
+    db.session.add(User(username='daniel', email='daniel@upeu.edu.pe', password='greathethaneight'))
+=======
     db.session.add(User(username='luis', email='luis@upeu.edu.pe'))
     db.session.add(User(username='daniel', email='daniel@upeu.edu.pe'))
+>>>>>>> 56ca3da6228634e582d203ac043c663a48e90ac1
     db.session.commit()
 
 @cli.command()

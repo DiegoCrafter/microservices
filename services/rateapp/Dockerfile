@@ -1,23 +1,15 @@
 # imagen base
-<<<<<<< HEAD
-FROM python:3.7.2-slim
-=======
 FROM python:3.7.2-alpine
->>>>>>> 56ca3da6228634e582d203ac043c663a48e90ac1
 
 
 # nuevo
 # instalando dependencias
-<<<<<<< HEAD
-RUN apt-get update && \
-	apt-get -y install netcat && \
-	apt-get clean
-=======
 RUN apk update && \
-		apk add --virtual build-deps gcc python-dev musl-dev && \
-		apk add postgresql-dev && \
-		apk add netcat-openbsd
->>>>>>> 56ca3da6228634e582d203ac043c663a48e90ac1
+   	apk add --virtual build-deps gcc python-dev musl-dev && \
+   	apk add postgresql-dev && \
+  	apk add netcat-openbsd && \
+	apk add bind-tools 
+
 
 # establecer directorio de trabajo
 WORKDIR /usr/src/app
