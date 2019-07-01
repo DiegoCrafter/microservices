@@ -7,14 +7,6 @@ rates_blueprint = Blueprint('rates', __name__, template_folder='./templates')
 @rates_blueprint.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        teachername = request.form['teachername']
-        teacherlastname = request.form['teacherlastname']
-        teachercareer = request.form['teachercareer']
-        teacherfaculty = request.form['teacherfaculty']
-        db.session.add(Teacher(
-            teachername=teachername, teacherlastname=teacherlastname, 
-            teachercareer=teachercareer, teacherfaculty=teacherfaculty
-        ))
         db.session.commit()
     teachers = Teacher.query.all()
     return render_template('index.html', teachers=teachers)
@@ -80,6 +72,7 @@ def update_teacher(teacher_id):
     db.session.commit()
     return redirect("/")
 
+
 @rates_blueprint.route('/teachers', methods=['POST'])
 def add_teacher():
     post_data = request.get_json()
@@ -89,12 +82,6 @@ def add_teacher():
     }
     if not post_data:
         return jsonify(response_object), 400
-    name = post_data.get('teachername')
-    lastname = post_data.get('teacherlastname')
-    career = post_data.get('teachercareer')
-    faculty = post_data.get('teacherfaculty')
-    db.session.add(
-        Teacher(teachername=name, teacherlastname=lastname, teachercareer=career, teacherfaculty=faculty))
     db.session.commit()
     response_object['status'] = 'success'
     response_object['message'] = f'was added!'

@@ -1,7 +1,4 @@
 # services/users/project/tests/test_config.py
-
-
-import os
 import unittest
 
 from flask import current_app
@@ -20,10 +17,6 @@ class TestDevelopmentConfig(TestCase):
     def test_app_is_development(self):
         self.assertTrue(app.config['SECRET_KEY'] == 'my_secretkey')
         self.assertFalse(current_app is None)
-        self.assertTrue(
-            app.config['SQLALCHEMY_DATABASE_URI'] ==
-            os.environ.get('DATABASE_URL')
-        )
 
 
 class TestTestingConfig(TestCase):
@@ -35,10 +28,6 @@ class TestTestingConfig(TestCase):
         self.assertTrue(app.config['SECRET_KEY'] == 'my_secretkey')
         self.assertTrue(app.config['TESTING'])
         self.assertFalse(app.config['PRESERVE_CONTEXT_ON_EXCEPTION'])
-        self.assertFalse(
-            app.config['SQLALCHEMY_DATABASE_URI'] == 
-            os.environ.get('DATABASE_TEST_URL')
-        )
 
 
 class TestProductionConfig(TestCase):
